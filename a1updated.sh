@@ -42,7 +42,7 @@ function display_welcome_message {
     echo -e "\033[1;37m-----------------------------------\033[0m"
     echo -e "\033[1;37mThis script will find subdomains for a given domain.\033[0m"
     echo -e "\033[1;32mTool Developed by Aswanth\033[0m"  # Your name in green
-        echo -e "\033[1;32mFor more tools, visit: https://github.com/Aswanthkp333\033[0m"
+    echo -e "\033[1;32mFor more tools, visit: https://github.com/Aswanthkp333\033[0m"
     echo -e "\033[1;37mPlease enter the domain name when prompted.\033[0m"
 }
 
@@ -133,6 +133,22 @@ function display_help {
     echo -e "  \033[1;32mChoose a subdomain to visit from the list\033[0m"
     echo -e "  \033[1;32mUse 'y' or 'n' to proceed with the prompts\033[0m"
 }
+
+# Check if assetfinder is installed
+if ! command -v assetfinder &> /dev/null; then
+    echo -e "\033[1;31mError: 'assetfinder' is not installed.\033[0m"
+    echo -e "Please install 'assetfinder' using the following command:"
+    echo -e "  \033[1;34msudo apt install assetfinder\033[0m"
+    exit 1
+fi
+
+# Check if httprobe is installed
+if ! command -v httprobe &> /dev/null; then
+    echo -e "\033[1;31mError: 'httprobe' is not installed.\033[0m"
+    echo -e "Please install 'httprobe' using the following command:"
+    echo -e "  \033[1;34msudo apt install httprobe\033[0m"
+    exit 1
+fi
 
 # Display the custom ASCII art and welcome message
 display_ascii_art_animation
